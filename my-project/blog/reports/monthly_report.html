@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h2> Hello {{user}}</h2>
+    <h3 style="color:chocolate;text-align: center;"> Here is your monthly report of Blog lite app </h3><hr style="color:blue">
+    {% if all_posts==[] %}
+      <p>You have not posted anything till now</p>
+      <p>Please post to interact with your friends</p>
+    {% else %}
+    <h2 style="text-align: center;">Post Details</h2>
+
+    {% for post in all_posts %}
+       <h3>{{loop.index}}.</h3>Post image: <br>
+       <img src="{{post.post}}" alt="post_image" style="height: 200px;width: 160px;display: flex;align-items: center;"><br>
+       <p><span>Caption</span>: {{post['caption']}}</p>
+       <p><span>Created on</span>:{{post['time']}}</p><br>
+    {% endfor %}
+    {% endif %}
+    <h2 style="color: chocolate;text-align: center;">Followers Details</h2><hr>
+    {% if all_followers==[] %}
+     <h3 style="color:red">You have no Followers yet</h3>
+     {% else %}
+
+    {% for follower in all_followers %}
+          {{loop.index}}.
+          {{follower['followers']}} <br>
+     {% endfor %}
+   {% endif %}       
+
+</body>
+</html>
